@@ -1,5 +1,12 @@
 {
   "dependencies": {
+    "com.bennykok.toolbar-buttons": {
+      "version": "https://github.com/BennyKok/unity-toolbar-buttons.git#v2.2.0",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "5b8a40ccf352f5b32657f45b0390ca71929b9353"
+    },
     "com.unity.burst": {
       "version": "1.6.0",
       "depth": 1,
