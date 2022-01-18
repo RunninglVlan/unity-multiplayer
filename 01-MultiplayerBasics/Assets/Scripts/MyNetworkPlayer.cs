@@ -8,6 +8,9 @@ public partial class MyNetworkPlayer : NetworkBehaviour {
     [SyncVar(hook = nameof(SetRendererColor)), SerializeField]
     Color displayColor = Color.magenta;
 
+    [SyncVar(hook = nameof(SetHealth)), SerializeField]
+    int displayHealth;
+
     [SerializeField] Transform titlePoint;
     [SerializeField] Renderer colorRenderer;
 }

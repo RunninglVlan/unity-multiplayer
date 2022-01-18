@@ -5,8 +5,10 @@ using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
 
 public partial class MyNetworkPlayer {
-    void SetTitle(string _, string newValue) => title.text = newValue;
+    void SetTitle(string _, string newValue) => SetTitle(newValue, displayHealth);
     void SetRendererColor(Color _, Color newValue) => colorRenderer.material.color = newValue;
+    void SetHealth(int _, int newValue) => SetTitle(displayName, newValue);
+    void SetTitle(string value, int health) => title.text = $"{value} ({health})";
 
     Label title;
     Camera mainCamera;
@@ -26,8 +28,13 @@ public partial class MyNetworkPlayer {
 
     void Update() {
         var local = isLocalPlayer;
-        if (local && Keyboard.current.cKey.wasPressedThisFrame) {
-            CmdChangeColor();
+        if (local) {
+            if (Keyboard.current.cKey.wasPressedThisFrame) {
+                CmdChangeColor();
+            }
+            if (Keyboard.current.hKey.wasPressedThisFrame) {
+                CmdIncreaseHealth(10);
+            }
         }
         if (local && isServer && Keyboard.current.nKey.wasPressedThisFrame) {
             RpcLogName(displayName);

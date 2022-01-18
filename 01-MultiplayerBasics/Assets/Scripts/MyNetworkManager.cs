@@ -12,5 +12,6 @@ public class MyNetworkManager : NetworkManager {
         }
         player.SetDisplayName($"Player {numPlayers}");
         player.SetDisplayColor(Random.ColorHSV());
+        player.SetDisplayHealth(50);
     }
 }
