@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 5635968550805269977}
   - component: {fileID: 8466174372810246791}
   - component: {fileID: 2333057008858084692}
+  - component: {fileID: 2669389972052602998}
+  - component: {fileID: -7311106874140506690}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -73,56 +75,6 @@ MonoBehaviour:
   displayHealth: 0
   titlePoint: {fileID: 4052346171109516139}
   colorRenderer: {fileID: 1529775811515951670}
-  moveAction:
-    m_Name: Move
-    m_Type: 0
-    m_ExpectedControlType: Vector2
-    m_Id: 87193846-11eb-4892-81d8-61c75aecedcb
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings:
-    - m_Name: Arrows
-      m_Id: 0b9f4d36-d2a6-433f-9058-e0b17dedd096
-      m_Path: 2DVector
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Move
-      m_Flags: 4
-    - m_Name: up
-      m_Id: 686c7f71-abaf-4311-8799-225df5a9a752
-      m_Path: <Keyboard>/upArrow
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Move
-      m_Flags: 8
-    - m_Name: down
-      m_Id: 0f0757fb-942c-4f68-baff-f58874bbc03b
-      m_Path: <Keyboard>/downArrow
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Move
-      m_Flags: 8
-    - m_Name: left
-      m_Id: dcfcd1a7-3a2e-4e7a-b924-9ab7a36fea18
-      m_Path: <Keyboard>/leftArrow
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Move
-      m_Flags: 8
-    - m_Name: right
-      m_Id: 3aec95ed-507f-4cb8-9005-e29653009b0c
-      m_Path: <Keyboard>/rightArrow
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Move
-      m_Flags: 8
-    m_Flags: 0
-  movementSpeed: 10
 --- !u!114 &8466174372810246791
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -154,7 +106,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   syncMode: 0
   syncInterval: 0.1
-  clientAuthority: 1
+  clientAuthority: 0
   sendInterval: 0.05
   syncPosition: 1
   syncRotation: 1
@@ -174,6 +126,43 @@ MonoBehaviour:
   showGizmos: 0
   showOverlay: 0
   overlayColor: {r: 0, g: 0, b: 0, a: 0.5}
+--- !u!195 &2669389972052602998
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 397605220646240816}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 1
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!114 &-7311106874140506690
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 397605220646240816}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 748aa686555648bd99d2473a6bb50fa0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  agent: {fileID: 2669389972052602998}
 --- !u!1 &7913896576376101407
 GameObject:
   m_ObjectHideFlags: 0

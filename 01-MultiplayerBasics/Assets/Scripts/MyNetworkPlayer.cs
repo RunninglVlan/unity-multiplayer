@@ -1,6 +1,5 @@
 ﻿using Mirror;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public partial class MyNetworkPlayer : NetworkBehaviour {
     [SyncVar(hook = nameof(SetTitle)), SerializeField]
@@ -14,6 +13,4 @@ public partial class MyNetworkPlayer : NetworkBehaviour {
 
     [SerializeField] Transform titlePoint;
     [SerializeField] Renderer colorRenderer;
-    [SerializeField] InputAction moveAction;
-    [SerializeField] float movementSpeed = 1;
 }
