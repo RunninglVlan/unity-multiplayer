@@ -7,4 +7,10 @@ public partial class MyNetworkPlayer {
 
     [Server]
     public void SetDisplayColor(Color value) => displayColor = value;
+
+    [Command]
+    void ChangeColor() {
+        SetDisplayColor(Random.ColorHSV());
+        LogColorChange();
+    }
 }

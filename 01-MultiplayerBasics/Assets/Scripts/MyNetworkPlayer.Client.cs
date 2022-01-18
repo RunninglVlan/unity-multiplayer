@@ -1,4 +1,7 @@
-﻿using UnityEngine;
+﻿using System.Diagnostics.CodeAnalysis;
+using Mirror;
+using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
 
 public partial class MyNetworkPlayer {
@@ -11,6 +14,24 @@ public partial class MyNetworkPlayer {
     void Awake() {
         title = GetComponent<UIDocument>().rootVisualElement.Q<Label>();
         mainCamera = Camera.main;
+    }
+
+    [ClientRpc]
+    [SuppressMessage("ReSharper", "MemberCanBeMadeStatic.Local")]
+    void LogName(string value) => Debug.Log($"Server object name is {value}");
+
+    [TargetRpc]
+    [SuppressMessage("ReSharper", "MemberCanBeMadeStatic.Local")]
+    void LogColorChange() => Debug.Log("Server changed our color");
+
+    void Update() {
+        var local = isLocalPlayer;
+        if (local && Keyboard.current.cKey.wasPressedThisFrame) {
+            ChangeColor();
+        }
+        if (local && isServer && Keyboard.current.nKey.wasPressedThisFrame) {
+            LogName(displayName);
+        }
     }
 
     void LateUpdate() {
