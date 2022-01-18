@@ -19,6 +19,10 @@ public partial class MyNetworkPlayer {
 
     [Command]
     void CmdIncreaseHealth(int value) {
-        SetDisplayHealth(displayHealth + value);
+        var newHealth = displayHealth + value;
+        if (newHealth > 100) {
+            return;
+        }
+        SetDisplayHealth(newHealth);
     }
 }
