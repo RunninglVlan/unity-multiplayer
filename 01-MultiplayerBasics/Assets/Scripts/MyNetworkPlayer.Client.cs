@@ -32,10 +32,12 @@ public partial class MyNetworkPlayer {
             if (Keyboard.current.cKey.wasPressedThisFrame) {
                 CmdChangeColor();
             }
+
             if (Keyboard.current.hKey.wasPressedThisFrame) {
                 CmdIncreaseHealth(10);
             }
         }
+
         if (local && isServer && Keyboard.current.nKey.wasPressedThisFrame) {
             RpcLogName(displayName);
         }

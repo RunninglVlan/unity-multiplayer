@@ -69,6 +69,7 @@ MonoBehaviour:
   syncInterval: 0.1
   displayName: Missing Name
   displayColor: {r: 1, g: 0, b: 1, a: 1}
+  displayHealth: 0
   titlePoint: {fileID: 4052346171109516139}
   colorRenderer: {fileID: 1529775811515951670}
 --- !u!114 &8466174372810246791
