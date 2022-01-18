@@ -18,19 +18,19 @@ public partial class MyNetworkPlayer {
 
     [ClientRpc]
     [SuppressMessage("ReSharper", "MemberCanBeMadeStatic.Local")]
-    void LogName(string value) => Debug.Log($"Server object name is {value}");
+    void RpcLogName(string value) => Debug.Log($"Server object name is {value}");
 
     [TargetRpc]
     [SuppressMessage("ReSharper", "MemberCanBeMadeStatic.Local")]
-    void LogColorChange() => Debug.Log("Server changed our color");
+    void TargetLogColorChange() => Debug.Log("Server changed our color");
 
     void Update() {
         var local = isLocalPlayer;
         if (local && Keyboard.current.cKey.wasPressedThisFrame) {
-            ChangeColor();
+            CmdChangeColor();
         }
         if (local && isServer && Keyboard.current.nKey.wasPressedThisFrame) {
-            LogName(displayName);
+            RpcLogName(displayName);
         }
     }
 

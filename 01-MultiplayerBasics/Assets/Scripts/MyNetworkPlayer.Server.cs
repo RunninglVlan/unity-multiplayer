@@ -3,14 +3,14 @@ using UnityEngine;
 
 public partial class MyNetworkPlayer {
     [Server]
-    public void SetDisplayName(string name) => displayName = name;
+    public void SetDisplayName(string value) => displayName = value;
 
     [Server]
     public void SetDisplayColor(Color value) => displayColor = value;
 
     [Command]
-    void ChangeColor() {
+    void CmdChangeColor() {
         SetDisplayColor(Random.ColorHSV());
-        LogColorChange();
+        TargetLogColorChange();
     }
 }
