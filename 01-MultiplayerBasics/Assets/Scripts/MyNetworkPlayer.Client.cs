@@ -26,19 +26,21 @@ public partial class MyNetworkPlayer {
     [SuppressMessage("ReSharper", "MemberCanBeMadeStatic.Local")]
     void TargetLogColorChange() => Debug.Log("Server changed our color");
 
+    [ClientCallback]
     void Update() {
-        var local = isLocalPlayer;
-        if (local) {
-            if (Keyboard.current.cKey.wasPressedThisFrame) {
-                CmdChangeColor();
-            }
-
-            if (Keyboard.current.hKey.wasPressedThisFrame) {
-                CmdIncreaseHealth(10);
-            }
+        if (!hasAuthority) {
+            return;
         }
 
-        if (local && isServer && Keyboard.current.nKey.wasPressedThisFrame) {
+        if (Keyboard.current.cKey.wasPressedThisFrame) {
+            CmdChangeColor();
+        }
+
+        if (Keyboard.current.hKey.wasPressedThisFrame) {
+            CmdIncreaseHealth(10);
+        }
+
+        if (isServer && Keyboard.current.nKey.wasPressedThisFrame) {
             RpcLogName(displayName);
         }
     }
