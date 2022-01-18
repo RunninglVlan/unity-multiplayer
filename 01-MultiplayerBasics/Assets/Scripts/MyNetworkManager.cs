@@ -7,6 +7,9 @@ public class MyNetworkManager : NetworkManager {
 
         var player = conn.identity.GetComponent<MyNetworkPlayer>();
 
+        if (numPlayers == 1) {
+            player.transform.position = Vector3.left * 4;
+        }
         player.SetDisplayName($"Player {numPlayers}");
         player.SetDisplayColor(Random.ColorHSV());
     }
