@@ -16,6 +16,7 @@ public partial class MyNetworkPlayer {
     void Awake() {
         title = GetComponent<UIDocument>().rootVisualElement.Q<Label>();
         mainCamera = Camera.main;
+        moveAction.Enable();
     }
 
     [ClientRpc]
@@ -36,6 +37,9 @@ public partial class MyNetworkPlayer {
             if (Keyboard.current.hKey.wasPressedThisFrame) {
                 CmdIncreaseHealth(10);
             }
+
+            var move = moveAction.ReadValue<Vector2>().normalized;
+            transform.position += new Vector3(move.x, 0, move.y) * movementSpeed * Time.deltaTime;
         }
 
         if (local && isServer && Keyboard.current.nKey.wasPressedThisFrame) {

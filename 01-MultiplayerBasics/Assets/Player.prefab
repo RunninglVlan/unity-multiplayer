@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 397605220646240819}
   - component: {fileID: 5635968550805269977}
   - component: {fileID: 8466174372810246791}
+  - component: {fileID: 2333057008858084692}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -72,6 +73,56 @@ MonoBehaviour:
   displayHealth: 0
   titlePoint: {fileID: 4052346171109516139}
   colorRenderer: {fileID: 1529775811515951670}
+  moveAction:
+    m_Name: Move
+    m_Type: 0
+    m_ExpectedControlType: Vector2
+    m_Id: 87193846-11eb-4892-81d8-61c75aecedcb
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: Arrows
+      m_Id: 0b9f4d36-d2a6-433f-9058-e0b17dedd096
+      m_Path: 2DVector
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Move
+      m_Flags: 4
+    - m_Name: up
+      m_Id: 686c7f71-abaf-4311-8799-225df5a9a752
+      m_Path: <Keyboard>/upArrow
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Move
+      m_Flags: 8
+    - m_Name: down
+      m_Id: 0f0757fb-942c-4f68-baff-f58874bbc03b
+      m_Path: <Keyboard>/downArrow
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Move
+      m_Flags: 8
+    - m_Name: left
+      m_Id: dcfcd1a7-3a2e-4e7a-b924-9ab7a36fea18
+      m_Path: <Keyboard>/leftArrow
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Move
+      m_Flags: 8
+    - m_Name: right
+      m_Id: 3aec95ed-507f-4cb8-9005-e29653009b0c
+      m_Path: <Keyboard>/rightArrow
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Move
+      m_Flags: 8
+    m_Flags: 0
+  movementSpeed: 10
 --- !u!114 &8466174372810246791
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -89,6 +140,40 @@ MonoBehaviour:
   sourceAsset: {fileID: 9197481963319205126, guid: 87d6278193033e64685f67e792dc62aa,
     type: 3}
   m_SortingOrder: 0
+--- !u!114 &2333057008858084692
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 397605220646240816}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f74aedd71d9a4f55b3ce499326d45fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  clientAuthority: 1
+  sendInterval: 0.05
+  syncPosition: 1
+  syncRotation: 1
+  syncScale: 0
+  interpolatePosition: 1
+  interpolateRotation: 1
+  interpolateScale: 0
+  bufferTimeMultiplier: 1
+  bufferSizeLimit: 64
+  catchupThreshold: 4
+  catchupMultiplier: 0.1
+  onlySyncOnChange: 1
+  bufferResetMultiplier: 5
+  positionSensitivity: 0.01
+  rotationSensitivity: 0.01
+  scaleSensitivity: 0.01
+  showGizmos: 0
+  showOverlay: 0
+  overlayColor: {r: 0, g: 0, b: 0, a: 0.5}
 --- !u!1 &7913896576376101407
 GameObject:
   m_ObjectHideFlags: 0
@@ -116,7 +201,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7913896576376101407}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -210,7 +295,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8193330190104565615}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.75, z: 0}
+  m_LocalPosition: {x: 0, y: 1.25, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
